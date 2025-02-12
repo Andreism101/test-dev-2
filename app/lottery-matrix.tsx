@@ -61,7 +61,7 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
                     {sortedNumbers.map(n => (
                     <div key={n} className="cell">
                         {entry.numbers.includes(n) && (
-                        <span className="indicator">●</span>
+                        <span className="text-3xl">🔥</span>
                         )}
                     </div>
                     ))}

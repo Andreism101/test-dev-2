@@ -33,7 +33,7 @@ body {
   display: flex;
   gap: 1px;
   background: #eee;
-  width: max-content; /* Ensures it takes only as much space as needed */
+  width: auto; /* Ensures it takes only as much space as needed */
 }
 
 .matrix-column {
@@ -84,7 +84,7 @@ body {
 }
 
 .total-cell {
-  background: rgba(52, 152, 219, var(--intensity));
+  background: rgba(255, 0, 0, var(--intensity));
   font-weight: 600;
   color: white;
 }

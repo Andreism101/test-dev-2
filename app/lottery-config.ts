@@ -72,4 +72,4 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     max: 58,
     formatNumber: n => n.toString().padStart(2, '0')
   }
-};
+}satisfies Record<LotteryType, LotteryConfig>;

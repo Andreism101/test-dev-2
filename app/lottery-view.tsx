@@ -99,10 +99,10 @@ export const LotteryView = ({ initialData, type }: LotteryViewProps) => {
       </div>
 
       {/* Results Count */}
-      <div className="mt-4 text-sm text-gray-600 text-center">
+      {/* <div className="mt-4 text-sm text-gray-600 text-center">
         Showing {filteredData.length} results
         {(startDate || endDate) && ` between ${startDate || 'earliest'} and ${endDate || 'latest'}`}
-      </div>
+      </div> */}
     </div>
   );
 };
