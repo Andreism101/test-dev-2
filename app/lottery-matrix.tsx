@@ -49,7 +49,9 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
                 <div className="cell header-cell">Numbers</div>
                 {sortedNumbers.map(n => (
                     <span key={n} className="cell number-label">
-                    {config.formatNumber(n)}
+                      <span>
+                        {config.formatNumber(n)}
+                      </span>
                     </span>
                 ))}
             </div>
