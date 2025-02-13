@@ -33,29 +33,33 @@ const getSheetData = async () => {
     }
 };
 
-export const LotteryResults = async ({ type }: { type: LotteryType }) => {
+export const LotteryResults = async () => {
     const rawData = await getSheetData();
     if (!rawData || !rawData.length) return <div>No data found</div>;
   
-    const config = LOTTERY_CONFIG[type];
-    
-    // Process data with dates
+    // Process all data with lottery types
     const processedData = rawData
       .slice(1)
-      .filter(row => row[1] === type)
       .map(row => {
-        const numbers = parseLotteryNumbers(row[2], type);
-        const date = parseDate(row[3]); // Use your existing date parsing logic
+        const lotteryType = row[1] as LotteryType;
+        const numbers = parseLotteryNumbers(row[2], lotteryType);
+        const date = parseDate(row[3]);
         
         return numbers && date ? { 
-          id: row[0], 
+          id: row[0],
+          lotteryType,
           numbers,
-          date: formatDate(date) // Use your existing formatDate function
+          date: formatDate(date)
         } : null;
       })
-      .filter(Boolean) as Array<{ id: string; numbers: number[]; date: string }>;
+      .filter(Boolean) as Array<{
+        id: string;
+        lotteryType: LotteryType;
+        numbers: number[];
+        date: string;
+      }>;
   
-    if (!processedData.length) return <div>No valid {type} data found</div>;
+    if (!processedData.length) return <div>No valid data found</div>;
   
-    return <LotteryView initialData={processedData} type={type} />;
-};
+    return <LotteryView allData={processedData} />;
+  };
