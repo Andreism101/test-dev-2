@@ -53,7 +53,12 @@ body {
 .matrix-column.totals {
   position: sticky;
   right: 0;
-  background: white;
+  background: linear-gradient(
+    to bottom,
+    red,       /* Top of the column */
+    yellow,    /* Middle */
+    blue  /* Bottom */
+  );
   z-index: 2;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -74,8 +79,14 @@ body {
 }
 
 .number-label {
-  font-weight: 500;
-  color: #2c3e50;
+  font-weight: 700;
+  /* color: #2c3e50; */
+  border: #379fdb 2px solid;
+  border-radius: 50%;
+  background-color: #57c1ff;
+  color: black;
+  width: 30px;
+  align-self: center;
 }
 
 .indicator {
@@ -84,7 +95,13 @@ body {
 }
 
 .total-cell {
-  background: rgba(255, 0, 0, var(--intensity));
   font-weight: 600;
   color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 50px;
+  background: transparent;
 }

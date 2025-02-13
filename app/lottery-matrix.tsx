@@ -4,7 +4,7 @@ import { LOTTERY_CONFIG, LotteryType } from './lottery-config';
 import { generateNumberRange } from './lottery-utils';
 
 interface LotteryMatrixProps {
-  data: Array<{ id: string; numbers: number[] }>;
+  data: Array<{ id: string; numbers: number[]; date: string }>;
   type: LotteryType;
 }
 
@@ -48,20 +48,20 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
             <div className="matrix-column headers">
                 <div className="cell header-cell">Numbers</div>
                 {sortedNumbers.map(n => (
-                    <div key={n} className="cell number-label">
+                    <span key={n} className="cell number-label">
                     {config.formatNumber(n)}
-                    </div>
+                    </span>
                 ))}
             </div>
 
             {/* Data Columns */}
             {data.map(entry => (
                 <div key={entry.id} className="matrix-column">
-                    <div className="cell header-cell">{entry.id}</div>
+                    <div className="cell header-cell">{entry.date}</div>
                     {sortedNumbers.map(n => (
                     <div key={n} className="cell">
                         {entry.numbers.includes(n) && (
-                        <span className="text-3xl">🔥</span>
+                        <span className="text-3xl">❌</span>
                         )}
                     </div>
                     ))}
@@ -76,7 +76,7 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
                 >
                     Totals {sortOrder === 'desc' ? '↓' : '↑'}
                 </button>
-            {sortedNumbers.map(n => {
+              {sortedNumbers.map(n => {
                 const count = numberCounts.get(n) || 0;
                 return (
                 <div 

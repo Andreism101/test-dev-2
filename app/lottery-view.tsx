@@ -59,20 +59,21 @@ export const LotteryView = ({ allData }: LotteryViewProps) => {
         <h1 className="text-2xl font-bold text-gray-800">
           {LOTTERY_CONFIG[selectedLottery].displayName} Results
         </h1>
-        <select
-          value={selectedLottery}
-          onChange={(e) => setSelectedLottery(e.target.value as LotteryType)}
-          className="px-4 py-2 border rounded-md text-sm font-medium"
-        >
-          {LOTTERY_TYPES.map(type => (
-            <option key={type} value={type}>{type}</option>
-          ))}
-        </select>
+        
       </div>
 
       {/* Filter Controls */}
       <div className="filters flex flex-wrap gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
         <div className="flex items-center gap-3">
+          <select
+            value={selectedLottery}
+            onChange={(e) => setSelectedLottery(e.target.value as LotteryType)}
+            className="px-4 py-2 border rounded-md text-sm font-medium"
+          >
+            {LOTTERY_TYPES.map(type => (
+              <option key={type} value={type}>{type}</option>
+            ))}
+          </select>
           <select
             value={filterType}
             onChange={(e) => {
