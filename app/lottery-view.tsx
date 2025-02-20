@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react';
 import { LotteryMatrix } from './lottery-matrix';
 import { LOTTERY_CONFIG, LotteryType } from './lottery-config';
+import Image from 'next/image';
 
 type FilterType = 'date-range' | 'last-draws';
 const LOTTERY_TYPES: LotteryType[] = ['2DL', '3DL', '4DL', '6DL', 'LOTTO42', 'ML45', 'SL49', 'GL55', 'UL58'];
@@ -56,6 +57,7 @@ export const LotteryView = ({ allData }: LotteryViewProps) => {
     <div className="lottery-view-container p-4 bg-white rounded-lg shadow-lg border border-gray-200 max-w-screen-xl mx-auto">
       {/* Header and Lottery Selection */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <Image src={LOTTERY_CONFIG[selectedLottery].image} alt="Fire ball" width={50} height={50} />
         <h1 className="text-2xl font-bold text-gray-800">
           {LOTTERY_CONFIG[selectedLottery].displayName} Results
         </h1>
@@ -100,7 +102,7 @@ export const LotteryView = ({ allData }: LotteryViewProps) => {
             >
               {DRAW_COUNTS.map(count => (
                 <option key={count} value={count}>
-                  {count === -1 ? 'All Draws' : `Last ${count}`}
+                  {count === -1 ? 'All Draws' : `Last ${count} Draws`}
                 </option>
               ))}
             </select>

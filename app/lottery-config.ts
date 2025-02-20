@@ -18,7 +18,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 31,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/Lotto-2D_128x128.png',
     topCount: 6,
     lowCount: 6
   },
@@ -28,7 +28,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 0,
     max: 9,
     formatNumber: n => n.toString(),
-    image: 'Lotto-2D_128x128.png',
+    image: '/Lotto-3D_128x128.png',
     topCount: 3,
     lowCount: 3
   },
@@ -38,7 +38,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 0,
     max: 9,
     formatNumber: n => n.toString(),
-    image: 'Lotto-2D_128x128.png',
+    image: '/Lotto-4D_128x128.png',
     topCount: 3,
     lowCount: 3
   },
@@ -48,7 +48,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 0,
     max: 9,
     formatNumber: n => n.toString(),
-    image: 'Lotto-2D_128x128.png',
+    image: '/Lotto-6D_128x128.png',
     topCount: 3,
     lowCount: 3
   },
@@ -58,7 +58,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 42,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/642.png',
     topCount: 6,
     lowCount: 14
   },
@@ -68,7 +68,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 45,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/645.png',
     topCount: 6,
     lowCount: 15
   },
@@ -78,7 +78,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 49,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/649.png',
     topCount: 6,
     lowCount: 16
   },
@@ -88,7 +88,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 55,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/655.png',
     topCount: 6,
     lowCount: 17
   },
@@ -98,7 +98,7 @@ export const LOTTERY_CONFIG: Record<LotteryType, LotteryConfig> = {
     min: 1,
     max: 58,
     formatNumber: n => n.toString().padStart(2, '0'),
-    image: 'Lotto-2D_128x128.png',
+    image: '/658.png',
     topCount: 6,
     lowCount: 18
   }
