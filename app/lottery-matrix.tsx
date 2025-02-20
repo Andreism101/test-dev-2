@@ -71,37 +71,28 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
                 key={n}
                 className={`cell number-label ball ${isHigh ? 'high' : ''} ${isLow ? 'low' : ''}`}
               >
-                {isHigh ? (
-                  <div
-                    className={fireBallStyles.container}
-                    style={
-                      {
-                        '--number-left': (['3DL', '4DL', '5DL'].includes(type)) ? '17px' : '12px'
-                      } as React.CSSProperties
-                    }
-                  >
-                    <Image src={fireBall} alt="Fire ball" width={50} height={50} />
-                    <span className={fireBallStyles.number}>
-                      {config.formatNumber(n)}
-                    </span>
-                  </div>
-                ) : (
-                  <>
-                    <span>{config.formatNumber(n)}</span>
-                    {isLow && (
-                      <div className="falling-snow">
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                        <div className="snowflake"></div>
-                      </div>
-                    )}
-                  </>
-                )}
+                <div
+                  className={fireBallStyles.container}
+                  style={
+                    {
+                      '--number-left': (['3DL', '4DL', '5DL'].includes(type)) ? '17px' : '12px'
+                    } as React.CSSProperties
+                  }
+                >
+                  <span>{config.formatNumber(n)}</span>
+                  {isLow && (
+                    <div className="falling-snow">
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                      <div className="snowflake"></div>
+                    </div>
+                  )}
+                </div>
               </span>
             );
           })}

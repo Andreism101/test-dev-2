@@ -35,7 +35,7 @@ body {
   width: 100%;
   max-width: 100vw;
   max-height: 60vh;
-  background: #d3d3d3;
+  background: #eeeeee;
 }
 
 /* Toggle Button - modern gradient & rounded look */
@@ -68,13 +68,14 @@ body {
   gap: 8px;
   padding: 1rem;
   align-items: center;
+  justify-content: space-between
 }
 
 /* Matrix Columns */
 .matrix-column {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 11px;
 }
 
 .matrix-column.headers {
@@ -141,64 +142,47 @@ body {
               2px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* High Numbers: Replace fire effects with hot-shape.svg */
 .number-label.high {
-  background: radial-gradient(circle at center, #ff6600, #ff0000, transparent);
-  box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.9),
-              0px 0px 30px rgba(255, 0, 0, 0.7);
+  background: url('/Hot.png') no-repeat center/contain;
+  box-shadow: none; /* Remove previous glow effects */
   position: relative;
-  animation: flicker 0.3s infinite alternate;
+  animation: none;
+  color: #ffffff;
+  scale: 1.3;
 }
-
 .number-label.high::before {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, rgba(255, 165, 0, 0.5), transparent);
-  border-radius: 50%;
-  filter: blur(8px);
-  animation: flames 0.6s infinite alternate;
+  content: none;
 }
 
-.number-label.low {
-  background: radial-gradient(circle at center, #57c1ff, #0044ff, transparent);
-  box-shadow: 0px 0px 15px rgba(0, 204, 255, 0.9),
-              0px 0px 30px rgba(0, 153, 255, 0.7);
+/* Average Numbers: Apply average-shape.svg background */
+/* Targets number-label elements that are neither high nor low */
+.number-label:not(.high):not(.low) {
+  background: url('/Orange.png') no-repeat center/contain;
+  box-shadow: none;
   position: relative;
-  animation: shimmer 1s infinite alternate;
+  scale: 1.3;
+  color: #ffffff;
 }
 
+/* Cold Numbers: Replace with cold-shape.svg background */
+.number-label.low {
+  background: url('/Cold.png') no-repeat center/contain;
+  box-shadow: none;
+  position: relative;
+  animation: none;
+  scale: 1.3;
+  color: #ffffff;
+}
 .number-label.low::before {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, rgba(0, 204, 255, 0.5), transparent);
-  border-radius: 50%;
-  filter: blur(10px);
-  animation: frost-glow 1.5s infinite alternate;
+  content: none;
 }
 
+/* Optionally, if you want to remove the falling snow effect on cold numbers */
 .number-label.low .falling-snow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  display: none;
 }
 
-/* Each snowflake: smaller size and faster animation */
-.number-label.low .falling-snow .snowflake {
-  position: absolute;
-  top: 5px; /* Start slightly above the container */
-  width: 3px;
-  height: 3px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: fall 1.2s linear infinite;
-}
 
 /* Randomized snowflake positions, delays, and durations */
 .number-label.low .falling-snow .snowflake:nth-child(1) {
@@ -278,7 +262,7 @@ body {
   100% { transform: scale(1.1); opacity: 0.8; filter: blur(12px); }
 }
 
-.number-label::after {
+/* .number-label::after {
   content: "";
   width: 25px;
   height: 25px;
@@ -287,11 +271,12 @@ body {
   position: absolute;
   z-index: 0;
   box-shadow: inset 0px 3px 5px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .number-label span {
   position: relative;
   z-index: 1;
+  top: -3px;
 }
 
 /* Totals Column Cells */
@@ -305,7 +290,7 @@ body {
   min-width: 50px;
   height: 50px;
   border-radius: 6px;
-  background: linear-gradient(145deg, #fffb00, #dbb300);
+  background: linear-gradient(145deg, #e78d00, #a85201);
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
@@ -315,10 +300,10 @@ body {
 }
 
 .total-cell.high {
-  background: linear-gradient(145deg, var(--accent), #ff0000);
+  background: linear-gradient(145deg, #f20000, #890000);
 }
 
 .total-cell.low {
-  background: linear-gradient(145deg, #57c1ff, #0044ff);
+  background: linear-gradient(145deg, #008eff, #0133af);
 }
 
