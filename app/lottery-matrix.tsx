@@ -59,9 +59,8 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
 
   return (
     <div className="lottery-matrix">
-      <div className="matrix-container">
-        {/* Numbers Column */}
-        <div className="matrix-column headers">
+      {/* Numbers Column */}
+      <div className="matrix-column headers">
           <div className="cell header-cell">Numbers</div>
           {sortedNumbers.map(n => {
             const isHigh = topNumbers.has(n);
@@ -97,6 +96,8 @@ export const LotteryMatrix = ({ data, type }: LotteryMatrixProps) => {
             );
           })}
         </div>
+      <div className="matrix-container">
+        
 
         {/* Toggle Button for expanding columns */}
         <button
